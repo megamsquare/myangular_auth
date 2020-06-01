@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'myangularAuth';
+
+  onActivate(event: any) {
+    window.scroll(0, 0);
+  }
+
 }
