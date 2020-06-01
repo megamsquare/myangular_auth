@@ -53,4 +53,11 @@ export class TokenService {
   loggedIn() {
     return this.isTokenValid();
   }
+
+  roleMatch(allowedRoles: any) {
+    let isMatch = false;
+    const tokenPayload = this.payload(this.get())['specify the role given iin the token'];
+    tokenPayload.includes(allowedRoles) ? isMatch = true : isMatch = false;
+    return isMatch;
+  }
 }
