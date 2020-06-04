@@ -26,6 +26,14 @@ export class AfterLoginService implements CanActivate, CanActivateChild {
   }
   // tslint:disable-next-line: max-line-length
   canActivateChild(childRoute: import('@angular/router').ActivatedRouteSnapshot, state: import('@angular/router').RouterStateSnapshot): boolean | import('@angular/router').UrlTree | import('rxjs').Observable<boolean | import('@angular/router').UrlTree> | Promise<boolean | import('@angular/router').UrlTree> {
-    throw new Error('Method not implemented.');
+
+    const allowRoles = childRoute.data.permittedRoles;
+    const isAuthorized = this.token.roleMatch(allowRoles);
+    if (!isAuthorized) {
+      this.router.navigateByUrl('/');
+    }
+
+    return isAuthorized;
+
   }
 }
