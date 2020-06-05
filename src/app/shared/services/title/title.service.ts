@@ -15,7 +15,7 @@ export class TitleService {
   ) { }
 
   setTitle(title: any) {
-    const page = this.title.next(title);
+    this.title.next(title);
     this.pageTitle.setTitle(title);
   }
 
