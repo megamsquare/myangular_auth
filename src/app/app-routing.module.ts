@@ -7,7 +7,13 @@ import { UserLayoutComponent } from './layout/user-layout/user-layout.component'
 const routes: Routes = [
   {
     path: '',
-    component: PagesComponent
+    component: PagesComponent,
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./components/pages/home/home.module').then(m => m.HomeModule)
+      }
+    ]
   },
   {
     path: 'home',
