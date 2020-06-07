@@ -7,7 +7,7 @@ import { Title } from '@angular/platform-browser';
 })
 export class TitleService {
 
-  private title = new BehaviorSubject<any>('Angular Authentication');
+  private title = new BehaviorSubject<any>('');
   private title$ = this.title.asObservable();
 
   constructor(
@@ -16,7 +16,11 @@ export class TitleService {
 
   setTitle(title: any) {
     this.title.next(title);
-    this.pageTitle.setTitle(title);
+    if (!title) {
+      this.pageTitle.setTitle('Angular Authenication');
+    } else {
+      this.pageTitle.setTitle(title);
+    }
   }
 
   getTitle(): Observable<any> {

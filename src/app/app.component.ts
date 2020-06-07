@@ -18,7 +18,7 @@ export class AppComponent {
       }
     );
 
-    pageTitle.setTitle('Just sample');
+    // pageTitle.setTitle('Just sample');
   }
 
   onActivate(event: any) {
