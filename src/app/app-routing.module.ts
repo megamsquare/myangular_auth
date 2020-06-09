@@ -16,8 +16,14 @@ const routes: Routes = [
     ]
   },
   {
-    path: 'home',
-    component: UserLayoutComponent
+    path: '',
+    component: UserLayoutComponent,
+    children: [
+      {
+        path: 'home',
+        loadChildren: () => import('./components/user/user-dashboard/user-dashboard.module').then(m => m.UserDashboardModule)
+      }
+    ]
   }
 ];
 
