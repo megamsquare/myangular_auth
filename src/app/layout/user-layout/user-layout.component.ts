@@ -12,4 +12,8 @@ export class UserLayoutComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onActivate(event) {
+    window.scroll(0, 0);
+  }
+
 }
