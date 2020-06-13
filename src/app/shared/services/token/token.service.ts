@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 export class TokenService {
 
   private iss = {
-    url: environment.url
+    url: environment.apiUrl
   };
 
   constructor() { }

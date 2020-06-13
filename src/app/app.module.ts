@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,7 @@ import { UserLayoutComponent } from './layout/user-layout/user-layout.component'
 import { UserLayoutHeaderComponent } from './layout/user-layout/user-layout-header/user-layout-header.component';
 import { UserAuthComponent } from './layout/auth/user-auth/user-auth.component';
 import { AdminAuthComponent } from './layout/auth/admin-auth/admin-auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AdminAuthComponent } from './layout/auth/admin-auth/admin-auth.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
