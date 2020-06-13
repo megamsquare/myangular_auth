@@ -7,6 +7,7 @@ import { PagesComponent } from './layout/pages/pages.component';
 import { PageHeaderComponent } from './layout/pages/page-header/page-header.component';
 import { UserLayoutComponent } from './layout/user-layout/user-layout.component';
 import { UserLayoutHeaderComponent } from './layout/user-layout/user-layout-header/user-layout-header.component';
+import { AuthComponent } from './layout/auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UserLayoutHeaderComponent } from './layout/user-layout/user-layout-head
     PagesComponent,
     PageHeaderComponent,
     UserLayoutComponent,
-    UserLayoutHeaderComponent
+    UserLayoutHeaderComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
