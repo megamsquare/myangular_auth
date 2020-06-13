@@ -12,4 +12,8 @@ export class AuthComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onActivate(event) {
+    window.scroll(0, 0);
+  }
+
 }
