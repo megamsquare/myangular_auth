@@ -13,6 +13,7 @@ export class SignUpComponent implements OnInit {
   ) { }
 
   userSignUp = this.fb.group({
+    name: ['', [Validators.required, Validators.minLength(2)]],
     email: ['', [Validators.required]],
     password: ['', Validators.compose([
       Validators.required,
@@ -68,6 +69,10 @@ export class SignUpComponent implements OnInit {
 
   get userConfirmPassword() {
     return this.userSignUp.controls.confirmPassword;
+  }
+
+  get userName() {
+    return this.userSignUp.controls.name;
   }
 
 }
