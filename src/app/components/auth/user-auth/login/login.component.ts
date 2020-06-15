@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
   onSubmit() {
     const login = this.userLogin.value;
     console.log(login);
-    this.authApi.Userlogin(login).subscribe(
+    this.authApi.userlogin(login).subscribe(
       data => {
         console.log(data);
       },

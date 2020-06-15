@@ -15,7 +15,11 @@ export class AuthApiService {
     private token: TokenService
   ) { }
 
-  Userlogin(data) {
+  userlogin(data) {
     return this.http.post(`${this.apiUrl}/login`, data);
+  }
+
+  userSignup(data) {
+    return this.http.post(`${this.apiUrl}/signup`, data);
   }
 }

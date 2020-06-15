@@ -1,73 +1,75 @@
 <p>sign-up works!</p>
 
-<form [formGroup]="userSignUp" (ngSubmit)="onSubmit()">
+<div class="container">
+  <form [formGroup]="userSignUp" (ngSubmit)="onSubmit()">
 
-  <div class="form-group">
-    <label for="name"> Name</label>
-    <input
-      type="text"
-      placeholder="Enter Full Name"
-      id="name"
-      formControlName="name"
-      [ngClass]="{
-        'form-control': true,
-        'is-invalid': !userName.valid && userName.touched,
-        'is-valid': userName.valid
-      }" >
-    <span class="invalid-feedback" *ngIf="userName.errors?.required && userName.touched">Name is required</span>
-  </div>
+    <div class="form-group">
+      <label for="name"> Name</label>
+      <input
+        type="text"
+        placeholder="Enter Full Name"
+        id="name"
+        formControlName="name"
+        [ngClass]="{
+          'form-control': true,
+          'is-invalid': !userName.valid && userName.touched,
+          'is-valid': userName.valid
+        }" >
+      <span class="invalid-feedback" *ngIf="userName.errors?.required && userName.touched">Name is required</span>
+    </div>
 
-  <div class="form-group">
-    <label for="email"> Email</label>
-    <input
-      type="text"
-      placeholder="Enter Email"
-      id="email"
-      formControlName="email"
-      [ngClass]="{
-        'form-control': true,
-        'is-invalid': !userEmail.valid && userEmail.touched,
-        'is-valid': userEmail.valid
-      }" >
-    <span class="invalid-feedback" *ngIf="userEmail.errors?.required && userEmail.touched">Email is required</span>
-  </div>
+    <div class="form-group">
+      <label for="email"> Email</label>
+      <input
+        type="text"
+        placeholder="Enter Email"
+        id="email"
+        formControlName="email"
+        [ngClass]="{
+          'form-control': true,
+          'is-invalid': !userEmail.valid && userEmail.touched,
+          'is-valid': userEmail.valid
+        }" >
+      <span class="invalid-feedback" *ngIf="userEmail.errors?.required && userEmail.touched">Email is required</span>
+    </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input
-      type="password"
-      placeholder="Enter Password"
-      id="password"
-      formControlName="password"
-      [ngClass]="{
-        'form-control': true,
-        'is-invalid': !userPassword.valid && userPassword.touched,
-        'is-valid': userPassword.valid
-      }" >
-    <span class="invalid-feedback" *ngIf="userPassword.errors?.required && userPassword.touched">Email is required</span>
-    <span class="invalid-feedback" *ngIf="userPassword.errors?.minlength && userPassword.touched">Must be 7 Characters or more</span>
-    <span class="invalid-feedback" *ngIf="userPassword.errors?.hasNumber && userPassword.touched">Must have 1 Number</span>
-    <span class="invalid-feedback" *ngIf="userPassword.errors?.hasCapitalCase && userPassword.touched">Must have 1 letter in Capital Case</span>
-    <span class="invalid-feedback" *ngIf="userPassword.errors?.hasSmallCase && userPassword.touched">Must have 1 letter in Small Case</span>
-  </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        id="password"
+        formControlName="password"
+        [ngClass]="{
+          'form-control': true,
+          'is-invalid': !userPassword.valid && userPassword.touched,
+          'is-valid': userPassword.valid
+        }" >
+      <span class="invalid-feedback" *ngIf="userPassword.errors?.required && userPassword.touched">Email is required</span>
+      <span class="invalid-feedback" *ngIf="userPassword.errors?.minlength && userPassword.touched">Must be 7 Characters or more</span>
+      <span class="invalid-feedback" *ngIf="userPassword.errors?.hasNumber && userPassword.touched">Must have 1 Number</span>
+      <span class="invalid-feedback" *ngIf="userPassword.errors?.hasCapitalCase && userPassword.touched">Must have 1 letter in Capital Case</span>
+      <span class="invalid-feedback" *ngIf="userPassword.errors?.hasSmallCase && userPassword.touched">Must have 1 letter in Small Case</span>
+    </div>
 
-  <div class="form-group">
-    <label for="confirmPassword"> Confirm Password</label>
-    <input
-      type="password"
-      placeholder="Confirm your Password"
-      id="confirmPassword"
-      formControlName="confirmPassword"
-      [ngClass]="{
-        'form-control': true,
-        'is-invalid': !userConfirmPassword.valid && userConfirmPassword.touched,
-        'is-valid': userConfirmPassword.valid
-      }" >
-    <span class="invalid-feedback" *ngIf="userConfirmPassword.errors?.required && userConfirmPassword.touched">Confirm Password is required</span>
-    <span class="invalid-feedback" *ngIf="userConfirmPassword.errors?.noPasswordMatch && userConfirmPassword.touched">Password do not match</span>
-  </div>
+    <div class="form-group">
+      <label for="confirmPassword"> Confirm Password</label>
+      <input
+        type="password"
+        placeholder="Confirm your Password"
+        id="confirmPassword"
+        formControlName="password_confirmation"
+        [ngClass]="{
+          'form-control': true,
+          'is-invalid': !userConfirmPassword.valid && userConfirmPassword.touched,
+          'is-valid': userConfirmPassword.valid
+        }" >
+      <!-- <span class="invalid-feedback" *ngIf="userConfirmPassword.errors?.required && userConfirmPassword.touched">Confirm Password is required</span> -->
+      <span class="invalid-feedback" *ngIf="userConfirmPassword.errors?.noPasswordMatch && userConfirmPassword.touched">Password do not match</span>
+    </div>
 
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </div>
-</form>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>

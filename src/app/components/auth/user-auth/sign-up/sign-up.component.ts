@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ValidationErrors, ValidatorFn, AbstractControl, FormBuilder, Validators } from '@angular/forms';
+import { AuthApiService } from 'src/app/shared/services/api/auth_api/auth-api.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -9,7 +10,8 @@ import { ValidationErrors, ValidatorFn, AbstractControl, FormBuilder, Validators
 export class SignUpComponent implements OnInit {
 
   constructor(
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private authApi: AuthApiService
   ) { }
 
   userSignUp = this.fb.group({
@@ -23,7 +25,7 @@ export class SignUpComponent implements OnInit {
       // this.passwordValidator(/[!@#$%^*&]/, {hasSpecialCharacter: true}),
       Validators.minLength(7)
     ])],
-    confirmPassword: ['', Validators.required]
+    password_confirmation: ['']
   },
   {
     validators: this.passwordMatchValidator
@@ -50,14 +52,25 @@ export class SignUpComponent implements OnInit {
 
   passwordMatchValidator(control: AbstractControl) {
     const password: string = control.get('password').value;
-    const confirmPassword: string = control.get('confirmPassword').value;
+    const confirmPassword: string = control.get('password_confirmation').value;
 
     if (password !== confirmPassword) {
-      control.get('confirmPassword').setErrors({noPasswordMatch: true});
+      control.get('password_confirmation').setErrors({noPasswordMatch: true});
     }
   }
 
-  onSubmit() {}
+  onSubmit() {
+    const signUp = this.userSignUp.value;
+    console.log(signUp);
+    this.authApi.userSignup(signUp).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
 
   get userEmail() {
     return this.userSignUp.controls.email;
@@ -68,7 +81,7 @@ export class SignUpComponent implements OnInit {
   }
 
   get userConfirmPassword() {
-    return this.userSignUp.controls.confirmPassword;
+    return this.userSignUp.controls.password_confirmation;
   }
 
   get userName() {
