@@ -22,4 +22,8 @@ export class AuthApiService {
   userSignup(data) {
     return this.http.post(`${this.apiUrl}/signup`, data);
   }
+
+  userResetPassword(data) {
+    return this.http.post(`${this.apiUrl}/sendPasswordReset`, data);
+  }
 }

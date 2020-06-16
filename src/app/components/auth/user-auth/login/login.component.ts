@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, ValidationErrors, ValidatorFn, AbstractControl } from '@angular/forms';
+import { FormBuilder, Validators, ValidationErrors, ValidatorFn, AbstractControl, FormControl } from '@angular/forms';
 import { AuthApiService } from 'src/app/shared/services/api/auth_api/auth-api.service';
 
 @Component({
@@ -25,6 +25,11 @@ export class LoginComponent implements OnInit {
       Validators.minLength(7)
     ])]
   });
+
+  resetsEmail = this.fb.group({
+    email: ['', [Validators.required, Validators.email]]
+  });
+
 
   ngOnInit(): void {
   }
@@ -58,12 +63,29 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  onSubmitReset() {
+    const emailRes = this.resetsEmail.value;
+    // console.log(email);
+    this.authApi.userResetPassword(emailRes).subscribe(
+      data => {
+        console.log(data);
+      },
+      error => {
+        console.log(error);
+      }
+    );
+  }
+
   get userEmail() {
     return this.userLogin.controls.email;
   }
 
   get userPassword() {
     return this.userLogin.controls.password;
+  }
+
+  get resetEmail() {
+    return this.resetsEmail.controls.email;
   }
 
 }
