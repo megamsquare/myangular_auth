@@ -11,6 +11,7 @@ import { UserLayoutHeaderComponent } from './layout/user-layout/user-layout-head
 import { UserAuthComponent } from './layout/auth/user-auth/user-auth.component';
 import { AdminAuthComponent } from './layout/auth/admin-auth/admin-auth.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PagesFooterComponent } from './layout/pages/pages-footer/pages-footer.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserLayoutComponent,
     UserLayoutHeaderComponent,
     UserAuthComponent,
-    AdminAuthComponent
+    AdminAuthComponent,
+    PagesFooterComponent
   ],
   imports: [
     BrowserModule,
