@@ -18,6 +18,10 @@ const routes: Routes = [
         path: 'about',
         loadChildren: () => import('./components/pages/about/about.module').then(m => m.AboutModule)
       },
+      {
+        path: 'services',
+        loadChildren: () => import('./components/pages/services/services.module').then(m => m.ServicesModule)
+      }
     ]
   },
   {
