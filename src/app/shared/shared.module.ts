@@ -12,7 +12,8 @@ import { FilterPipe } from './pipe/filter/filter.pipe';
     RouterModule
   ],
   exports: [
-    RouterModule
+    RouterModule,
+    FilterPipe
   ]
 })
 export class SharedModule { }
