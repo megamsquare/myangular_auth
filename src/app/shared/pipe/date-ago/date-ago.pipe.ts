@@ -22,6 +22,17 @@ export class DateAgoPipe implements PipeTransform {
         minute: 60,
         second: 1
       };
+      let counter: any;
+      for (const i of Object.keys(interval)) {
+        counter = Math.floor(seconds / interval[i]);
+        if (counter > 0) {
+          if (counter === 1) {
+            return counter + ' ' + i + ' ago'; // singular
+          } else {
+            return counter + ' ' + i + 's ago'; // plural
+          }
+        }
+      }
     }
     return localDate;
   }
